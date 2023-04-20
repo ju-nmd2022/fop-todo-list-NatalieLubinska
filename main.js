@@ -3,7 +3,6 @@
 let addToDoButton = document.getElementById("addToDo");
 let toDoContainer = document.getElementById("toDoContainer");
 let inputField = document.getElementById("inputField");
-
 //empty to-do list array
 let toDoList = [];
 
@@ -38,14 +37,10 @@ for (let i = 0; i < toDoList.length; i++) {
   });
   //added double-click event listener to remove to-dos
   paragraph.addEventListener("dblclick", function () {
-    //animation to remove to-dos
-    paragraph.classList.add("removing");
-    setTimeout(() => {
-      toDoContainer.removeChild(paragraph);
-      toDoList.splice(i, 1);
-      //save to-do list in local storage
-      localStorage.setItem("toDoList", JSON.stringify(toDoList));
-    }, i * 100); //delay
+    toDoContainer.removeChild(paragraph);
+    toDoList.splice(i, 1);
+    //save to-do list in local storage
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
   });
 }
 
@@ -77,18 +72,10 @@ addToDoButton.addEventListener("click", function () {
     localStorage.setItem("toDoList", JSON.stringify(toDoList));
   });
   //double click listener to remove new todos
-  paragraph.addEventListener(
-    "dblclick",
-    function () {
-      //animation to make removed items slide to right
-      paragraph.classList.add("removing");
-      setTimeout(() => {
-        toDoContainer.removeChild(paragraph);
-        toDoList.splice(toDoList.indexOf(newToDo), 1);
-        //update saved to-do list in local storage
-        localStorage.setItem("toDoList", JSON.stringify(toDoList));
-      }, 500);
-    },
-    100 * toDoList.length
-  );
+  paragraph.addEventListener("dblclick", function () {
+    toDoContainer.removeChild(paragraph);
+    toDoList.splice(toDoList.indexOf(newToDo), 1);
+    //update saved to-do list in local storage
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
+  });
 });
