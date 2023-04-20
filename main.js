@@ -1,4 +1,4 @@
-//Got help from this yt-video: https://youtu.be/-pRg_daFjfk
+//Got help from this yt-video: https:/ / youtu.be / -pRg_daFjfk;
 //ChatGPT helped me solve problems using localstorage and JSON
 
 let addToDoButton = document.getElementById("addToDo");
